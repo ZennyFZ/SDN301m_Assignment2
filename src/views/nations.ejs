@@ -78,7 +78,7 @@
                                             <a href="<%= baseURL%>/edit/<%= nation._id%>"><button
                                                     class="button is-warning">Edit</button></a>
                                             <a href="<%= baseURL%>/delete/<%= nation._id%>"><button
-                                                    class="button is-danger">Delete</button></a>
+                                                    class="button is-danger" onclick="return confirm('Confirm to delete?')">Delete</button></a>
                                         </div>
                                     </td>
                                 </tr>

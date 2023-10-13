@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride=require('method-override')
 
 var indexRouter = require('./routes/index');
 const nationRouter = require('./routes/Nation/nationViewRouter');
@@ -12,8 +13,8 @@ const { default: mongoose } = require('mongoose');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,7 +29,7 @@ connect.then((db) => {
   })
 
 
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/nations', nationRouter);
 app.use('/players', playerRouter);
@@ -45,7 +46,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {message: err.message});
+  res.render('error');
 });
 
 module.exports = app;

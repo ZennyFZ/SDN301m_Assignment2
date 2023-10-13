@@ -35,7 +35,7 @@ class nationController {
                 title: 'Detail of nation',
                 nations,
             })
-        })
+        }).catch(next)
     }
     update(req, res, next){
         if(!req.body.name || !req.body.description) {

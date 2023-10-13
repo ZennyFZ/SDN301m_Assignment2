@@ -29,13 +29,15 @@ class playerController {
     }
     formData(req, res, next) {
         const playerId = req.params.playerId;
+        const baseURL = req.originalUrl;
         Players.findById(playerId)
             .then((players) => {
                 res.render('playerDetail', {
                     title: 'Detail of player',
                     players,
+                    baseURL
                 })
-            })
+            }).catch(next)
     }
     update(req, res, next) {
         req.body.isCaptain = req.body.isCaptain === 'on' ? true : false;
