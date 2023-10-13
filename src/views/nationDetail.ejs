@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="column">
+        <form method="post">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" name="name" type="text" placeholder="Input name" value="<%=nations.name %>">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <input class="input" name="description" type="text" placeholder="Input description" value="<%=nations.description %>">
+                </div>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link" type="submit">Edit</button>
+                </div>
+                <div>
+                    <a href="/nations" class="button is-link is-light">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

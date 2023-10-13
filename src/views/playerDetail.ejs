@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+        <div class="column">
+            <form method="post">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" name="name" type="text" placeholder="Input name"
+                            value="<%= players.name%>">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Image</label>
+                    <div class="control">
+                        <input class="input" name="image" type="text" placeholder="Input image"
+                            value="<%= players.image%>">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Club</label>
+                    <div class="control">
+                        <input class="input" name="club" type="text" placeholder="Input club"
+                            value="<%= players.club%>">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Position</label>
+                    <div class="control">
+                        <select name="position" class="input">
+                            <option value="Goalkeeper" <% if(players.position == "Goalkeeper") { %> selected <% } %>>Goalkeeper</option>
+                            <option value="Defender" <% if(players.position == "Defender") { %> selected <% } %>>Defender</option>
+                            <option value="Midfielder" <% if(players.position == "Midfielder") { %> selected <% } %>>Midfielder</option>
+                            <option value="Forward" <% if(players.position == "Forward") { %> selected <% } %>>Forward</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Goals</label>
+                    <div class="control">
+                        <input class="input" name="goals" type="number" placeholder="Input Goals"
+                            value="<%= players.goals%>">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="checkbox">
+                        <span style="font-weight: bold;">Captain</span>
+                        <span class="control">
+                            <input type="checkbox" name="isCaptain" id="isCaptain" <% if(players.isCaptain) { %> checked <% } %>>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link" type="submit">Edit</button>
+                    </div>
+                    <div>
+                        <a href="/players" class="button is-link is-light">Cancel</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <%- include('partials/footer') %>
+</body>
+
+</html>
